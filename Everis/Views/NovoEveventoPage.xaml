@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behavior="clr-namespace:Everis.Utils"
+             mc:Ignorable="d"
+             x:Class="Everis.Views.NovoEventoPage"
+             Title="Cadastro de Evento">
+
+
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15" Orientation="Vertical">
+            <Frame CornerRadius="0" 
+           HorizontalOptions="FillAndExpand" 
+           VerticalOptions="Start"
+           HasShadow="false"
+           IsClippedToBounds="True"
+           Padding="15, 15, 15, 2">
+                <StackLayout Spacing="10" Padding="15">
+                    <Label Text="Evento" FontSize="Medium" />
+                    <Entry Text="{Binding Evento.Evento}" Placeholder="Nome do evento" FontSize="Small" />
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="0" 
+           HorizontalOptions="FillAndExpand" 
+           VerticalOptions="Start"
+           HasShadow="false"
+           IsClippedToBounds="True"
+           Padding="15, 0, 15, 2">
+                <StackLayout Spacing="10" Padding="15">
+                    <Label Text="Local" FontSize="Medium" />
+                    <Entry Text="{Binding Evento.Local}" Placeholder="Local do evento" FontSize="Small" />
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="0" 
+           HorizontalOptions="FillAndExpand" 
+           VerticalOptions="Start"
+           HasShadow="false"
+           IsClippedToBounds="True"
+           Padding="15, 0, 15, 2">
+                <StackLayout Spacing="10" Padding="15">
+                    <Label Text="Data" FontSize="Medium" />
+                    <Entry Text="{Binding Evento.Data}"  FontSize="Small" Keyboard="Numeric" Placeholder="xx/xx/xxxx">
+                        <Entry.Behaviors>
+                            <behavior:MaskedBehavior Mask="XX/XX/XXXX" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+            </Frame>
+
+            <Frame CornerRadius="0" 
+           HorizontalOptions="FillAndExpand" 
+           VerticalOptions="Start"
+           HasShadow="false"
+           IsClippedToBounds="True"
+           Padding="15, 0, 15, 2">
+                <StackLayout Spacing="10" Padding="15">
+                    <Label Text="Horário" FontSize="Medium" />
+                    <Entry Text="{Binding Evento.Horario}"  FontSize="Small"  Keyboard="Numeric" Placeholder="--:--">
+                        <Entry.Behaviors>
+                            <behavior:MaskedBehavior Mask="XX:XX" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+            </Frame>
+
+
+
+            <Grid VerticalOptions="End">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Cancelar" x:Name="btCancelar"
+                        HorizontalOptions="Fill" ImageSource="baseline_clear_white_18dp"
+                        VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" 
+                        BackgroundColor="LightCoral"
+                        ContentLayout="Left,5"
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16"
+                        Clicked="CancelarEvento_Clicked"
+                        />
+
+                <Button Text="Cadastrar" x:Name="btCadastrar"
+                        HorizontalOptions="Fill" ImageSource="baseline_check_white_18dp"
+                        VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="1" 
+                        BackgroundColor="LightGreen"
+                        ContentLayout="Left,5"
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16"
+                        Clicked="CadastrarEvento_Clicked"
+                        />
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

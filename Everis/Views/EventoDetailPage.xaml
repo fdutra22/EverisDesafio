@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behavior="clr-namespace:Everis.Utils"
+             mc:Ignorable="d"
+             x:Class="Everis.Views.EventoDetailPage"
+             Title="{Binding Title}">
+
+    <StackLayout Spacing="20" Padding="15">
+        <Label Text="{Binding Evento.Evento}" FontSize="Large" TextColor="LightGreen" HorizontalOptions="Center"/>
+        <StackLayout Padding="10" Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="{Binding Evento.Local}" 
+                                d:Text="Item description"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+            <Label Text=" - " 
+                                d:Text="Item description"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+            <Label Text="{Binding Evento.Data}" 
+                                d:Text="Item description"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+            <Label Text="{Binding Evento.Horario}" 
+                                d:Text="Item description"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+        </StackLayout>
+        <StackLayout Spacing="20" Padding="15" Orientation="Vertical">
+            <Frame CornerRadius="0" 
+           HorizontalOptions="FillAndExpand" 
+           VerticalOptions="Start"
+           HasShadow="false"
+           IsClippedToBounds="True"
+           Padding="15, 15, 15, 2">
+                <StackLayout Spacing="10" Padding="15">
+                    <Label Text="Nome" FontSize="Medium" />
+                    <Entry Text="{Binding Inscricao.Nome}" Placeholder="Digite aqui o nome" FontSize="Small" />
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="0" 
+           HorizontalOptions="FillAndExpand" 
+           VerticalOptions="Start"
+           HasShadow="false"
+           IsClippedToBounds="True"
+           Padding="15, 0, 15, 2">
+                <StackLayout Spacing="10" Padding="15">
+                    <Label Text="E-Mail" FontSize="Medium" />
+                    <Entry Text="{Binding Inscricao.Email}" Placeholder="Digite aqui o e-mail" FontSize="Small" />
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="0" 
+           HorizontalOptions="FillAndExpand" 
+           VerticalOptions="Start"
+           HasShadow="false"
+           IsClippedToBounds="True"
+           Padding="15, 0, 15, 2">
+                <StackLayout Spacing="10" Padding="15">
+                    <Label Text="Telefone" FontSize="Medium" />
+                    <Entry Text="{Binding Inscricao.Telefone}"  FontSize="Small" Keyboard="Numeric" Placeholder="(xx) xxxxx-xxxx">
+                        <Entry.Behaviors>
+                            <behavior:MaskedBehavior Mask="(XX) XXXXX-XXXX" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+            </Frame>
+
+            <Frame CornerRadius="0" 
+           HorizontalOptions="FillAndExpand" 
+           VerticalOptions="Start"
+           HasShadow="false"
+           IsClippedToBounds="True"
+           Padding="15, 0, 15, 2">
+                <StackLayout Spacing="10" Padding="15" Orientation="Horizontal">
+                    <Label Text="Conhecimento sobre o tema? " FontSize="Small" />
+                    <Switch HorizontalOptions="LayoutOptions.Center" VerticalOptions="LayoutOptions.CenterAndExpand" Toggled="SwitchToggled" />
+                </StackLayout>
+            </Frame>
+
+            <StackLayout Spacing="20" Padding="15" VerticalOptions="FillAndExpand" >
+                <Button Text="Inscrever-me" ImageSource="baseline_check_white_18dp" VerticalOptions="CenterAndExpand"
+                        BackgroundColor="LightGreen" HeightRequest="40"
+                        ContentLayout="Left,5"
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16"
+                        
+                        Clicked="CadastrarInscricao_Clicked"
+                        />
+
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+    
+</ContentPage>
